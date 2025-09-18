@@ -1,0 +1,17 @@
+.hooks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.hook-block {
+  background: #232323;
+  color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  font-size: 1.2rem;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.308);
+}

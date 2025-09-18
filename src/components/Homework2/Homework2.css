@@ -1,0 +1,42 @@
+.hw2-btn {
+  background: #61dafb;
+  color: #232323;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  margin-right: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s;
+}
+
+.hw2-btn.remove {
+  background: #ff6b6b;
+  color: #fff;
+  margin-right: 0;
+}
+
+.hw2-btn:hover {
+  background: #21a1f3;
+}
+
+.hw2-btn.remove:hover {
+  background: #d90429;
+}
+
+.component-list {
+  margin-top: 2rem;
+}
+
+.hw2-component {
+  max-width: 300px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
