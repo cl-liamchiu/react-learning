@@ -32,17 +32,14 @@ const Modal: React.FC<ModalProps> = ({ open, title, onClose }) => {
   if (!open) return null;
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {title === 'useState' && <UseStateExample />}
         {title === 'useEffect' && <UseEffectExample />}
         {title === 'useRef' && <UseRefExample />}
         {title === 'useMemo' && <UseMemoExample />}
         {title === 'useCallback' && <UseCallbackExample />}
         {title === 'useContext' && <UseContextExample />}
-        <button
-          onClick={onClose}
-          className="modal-close-btn"
-        >
+        <button onClick={onClose} className="modal-close-btn">
           Close
         </button>
       </div>

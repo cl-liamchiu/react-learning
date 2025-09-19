@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import Timer from './Timer';
 
 const UseEffectExample: React.FC = () => {
-    const [showTimer, setShowTimer] = useState(false);
+  const [showTimer, setShowTimer] = useState(false);
 
-    return (
-        <div>
-            <h3>UseEffect 範例</h3>
-            <pre>
-                <code>
-                {`const Timer = () => {
+  return (
+    <div>
+      <h3>UseEffect 範例</h3>
+      <pre>
+        <code>
+          {`const Timer = () => {
 const [seconds, setSeconds] = useState(0);
 
 useEffect(() => {
@@ -37,12 +37,14 @@ return (
     <p>已經過 {seconds} 秒</p>
   </div>
 );};`}
-                </code>
-            </pre>
-            <button onClick={() => setShowTimer(!showTimer)}>{showTimer ? '隱藏' : '顯示'}計時器</button>
-            {showTimer && <Timer />}
-        </div>
-    );
-}
+        </code>
+      </pre>
+      <button onClick={() => setShowTimer(!showTimer)}>
+        {showTimer ? '隱藏' : '顯示'}計時器
+      </button>
+      {showTimer && <Timer />}
+    </div>
+  );
+};
 
 export default UseEffectExample;

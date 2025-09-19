@@ -7,7 +7,11 @@ interface HomeworkDescriptionProps {
   contentAdvanced: React.ReactNode;
 }
 
-const HomeworkDescription: React.FC<HomeworkDescriptionProps> = ({title, contentBasic, contentAdvanced}) => {
+const HomeworkDescription: React.FC<HomeworkDescriptionProps> = ({
+  title,
+  contentBasic,
+  contentAdvanced,
+}) => {
   return (
     <div className="homework-description-container">
       <h2 className="homework-title">{title}</h2>

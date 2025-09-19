@@ -7,7 +7,7 @@
   border-color: white;
   border-width: 1px;
   border-style: solid;
-background-color: rgba(128, 128, 128, 0.5);
+  background-color: rgba(128, 128, 128, 0.5);
 }
 
 .homework-title {
@@ -17,8 +17,8 @@ background-color: rgba(128, 128, 128, 0.5);
 }
 
 .homework-content {
-    text-align: left;
-    margin-bottom: 2rem;
+  text-align: left;
+  margin-bottom: 2rem;
 }
 
 .homework-highlight {

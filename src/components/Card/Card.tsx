@@ -6,7 +6,7 @@ const Card: React.FC<CardItem> = ({ title, content }) => (
   <div className="card-center">
     <div className="card-content">
       <h3 className="card-title">{title}</h3>
-      <div className='content'>{content}</div>
+      <div className="content">{content}</div>
     </div>
   </div>
 );

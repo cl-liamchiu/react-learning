@@ -8,9 +8,13 @@ interface SidebarProps {
   setActivePage: (key: string) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ pages, activePage, setActivePage }) => (
+const Sidebar: React.FC<SidebarProps> = ({
+  pages,
+  activePage,
+  setActivePage,
+}) => (
   <aside className="sidebar">
-    {pages.map(page => (
+    {pages.map((page) => (
       <button
         key={page.key}
         onClick={() => setActivePage(page.key)}
