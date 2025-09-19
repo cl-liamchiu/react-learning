@@ -102,23 +102,39 @@ return (
 
 return (
     <div>
-        <h3>UseState 範例</h3>
         <p>Count: {count}</p>
-        <button onClick={() => {setCount(count + 1); console.log('count: ', count + 1);}}>增加</button>
-        <button onClick={() => {setCount(count - 1); console.log('count: ', count - 1);}}>減少</button>
+        <button 
+            onClick={() => {
+                setCount(count + 1); 
+                console.log('count: ', count + 1);}}>
+        增加
+        </button>
+        <button 
+            onClick={() => {
+                setCount(count - 1);
+                console.log('count: ', count - 1);}}>
+        減少
+        </button>
     </div>
 );`})}),f.jsxs("p",{children:["Count: ",g]}),f.jsx("button",{onClick:()=>{j(g+1),console.log("count: ",g+1)},children:"增加"}),f.jsx("button",{onClick:()=>{j(g-1),console.log("count: ",g-1)},style:{marginLeft:"0.5rem"},children:"減少"}),f.jsx("h3",{children:"如果用普通變數"}),f.jsx("pre",{children:f.jsx("code",{children:`let count = 0;
 
-function App() {
-    return (
-        <div>
-            <h3>普通變數範例</h3>
-            <p>Count: {count}</p>
-            <button onClick={() => {count2++; console.log('count: ', count2);}}>增加</button>
-            <button onClick={() => {count2--; console.log('count: ', count2);}}>減少</button>
-        </div>
-    );
-}`})}),f.jsxs("p",{children:["Count: ",z]}),f.jsx("button",{onClick:()=>{z++,console.log("count: ",z)},children:"增加"}),f.jsx("button",{onClick:()=>{z--,console.log("count: ",z)},style:{marginLeft:"0.5rem"},children:"減少"}),f.jsx("p",{children:"👉 你會發現雖然 console.log 會顯示但頁面上沒有產生改變，因為 React 不會偵測到普通變數的改變。"}),f.jsx("p",{children:"👉 state 改變會觸發元件重新 render，普通變數不會。"}),f.jsx("p",{children:"👉 所以要用 state 來儲存會改變的資料。"})]})},tv=()=>{const[g,j]=w.useState(0);return w.useEffect(()=>{console.log("Timer mounted");const z=setInterval(()=>{j(h=>h+1)},1e3);return()=>{console.log("Timer unmounted"),clearInterval(z)}},[]),w.useEffect(()=>{console.log(`Timer updated: ${g} seconds`)},[g]),w.useEffect(()=>{console.log("Timer rendered")}),f.jsxs("div",{children:[f.jsx("h2",{children:"計時器"}),f.jsxs("p",{children:["已經過 ",g," 秒"]})]})},ev=()=>{const[g,j]=w.useState(!1);return f.jsxs("div",{children:[f.jsx("h3",{children:"UseEffect 範例"}),f.jsx("pre",{children:f.jsx("code",{children:`const Timer: React.FC = () => {
+return (
+    <div>
+        <p>Count: {count}</p>
+        <button 
+            onClick={() => {
+                count++; 
+                console.log('count: ', count);}}>
+        增加
+        </button>
+        <button 
+            onClick={() => {
+                count--; 
+                console.log('count: ', count);}}>
+        減少
+        </button>
+    </div>
+);`})}),f.jsxs("p",{children:["Count: ",z]}),f.jsx("button",{onClick:()=>{z++,console.log("count: ",z)},children:"增加"}),f.jsx("button",{onClick:()=>{z--,console.log("count: ",z)},style:{marginLeft:"0.5rem"},children:"減少"}),f.jsx("p",{children:"👉 你會發現雖然 console.log 會顯示但頁面上沒有產生改變，因為 React 不會偵測到普通變數的改變。"}),f.jsx("p",{children:"👉 state 改變會觸發元件重新 render，普通變數不會。"}),f.jsx("p",{children:"👉 所以要用 state 來儲存會改變的資料。"})]})},tv=()=>{const[g,j]=w.useState(0);return w.useEffect(()=>{console.log("Timer mounted");const z=setInterval(()=>{j(h=>h+1)},1e3);return()=>{console.log("Timer unmounted"),clearInterval(z)}},[]),w.useEffect(()=>{console.log(`Timer updated: ${g} seconds`)},[g]),w.useEffect(()=>{console.log("Timer rendered")}),f.jsxs("div",{children:[f.jsx("h2",{children:"計時器"}),f.jsxs("p",{children:["已經過 ",g," 秒"]})]})},ev=()=>{const[g,j]=w.useState(!1);return f.jsxs("div",{children:[f.jsx("h3",{children:"UseEffect 範例"}),f.jsx("pre",{children:f.jsx("code",{children:`const Timer: React.FC = () => {
 const [seconds, setSeconds] = useState(0);
 
 useEffect(() => {
