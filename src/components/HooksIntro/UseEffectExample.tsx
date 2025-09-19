@@ -9,7 +9,7 @@ const UseEffectExample: React.FC = () => {
             <h3>UseEffect 範例</h3>
             <pre>
                 <code>
-                {`const Timer: React.FC = () => {
+                {`const Timer = () => {
 const [seconds, setSeconds] = useState(0);
 
 useEffect(() => {

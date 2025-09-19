@@ -28,7 +28,7 @@ const UseMemoExample: React.FC = () => {
             <h3>useMemo 範例</h3>
             <pre>
                 <code>
-                {`const ExpensiveCalcWithMemo: React.FC<{ num: number }> = ({ num }) => {
+                {`const ExpensiveCalcWithMemo = ({ num }) => {
     const result = useMemo(() => {
         console.log("Memo: Performing expensive calculation...");
         return num * 2;
@@ -37,7 +37,7 @@ const UseMemoExample: React.FC = () => {
     return <p>Memo result: {result}</p>;
 };
 
-const ExpensiveCalcWithoutMemo: React.FC<{ num: number }> = ({ num }) => {
+const ExpensiveCalcWithoutMemo = ({ num }) => {
     const result = (() => {
         console.log("Without Memo: Performing expensive calculation...");
         return num * 2;
@@ -46,7 +46,7 @@ const ExpensiveCalcWithoutMemo: React.FC<{ num: number }> = ({ num }) => {
     return <p>Without memo result: {result}</p>;
 }
 
-const UseMemoExample: React.FC = () => {
+const UseMemoExample = () => {
     const [count, setCount] = useState(0);
     const [num, setNum] = useState(0);
 

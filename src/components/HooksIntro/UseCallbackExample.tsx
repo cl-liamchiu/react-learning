@@ -53,6 +53,7 @@ const UseCallbackExample = () => {
         <p>Count: {count}</p>
         <button onClick={() => setCount(count + 1)}>增加</button>
         <Child onClick={handleClick} />
+        <ChildWithoutUseCallback onClick={handleClickWithoutUseCallback} />
     </div>
   );
 };`}
