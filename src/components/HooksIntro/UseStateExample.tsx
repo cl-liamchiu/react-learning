@@ -13,10 +13,19 @@ const UseStateExample: React.FC = () => {
 
 return (
     <div>
-        <h3>UseState 範例</h3>
         <p>Count: {count}</p>
-        <button onClick={() => {setCount(count + 1); console.log('count: ', count + 1);}}>增加</button>
-        <button onClick={() => {setCount(count - 1); console.log('count: ', count - 1);}}>減少</button>
+        <button 
+            onClick={() => {
+                setCount(count + 1); 
+                console.log('count: ', count + 1);}}>
+        增加
+        </button>
+        <button 
+            onClick={() => {
+                setCount(count - 1);
+                console.log('count: ', count - 1);}}>
+        減少
+        </button>
     </div>
 );`}
                 </code>
@@ -30,16 +39,23 @@ return (
                 <code>
                     {`let count = 0;
 
-function App() {
-    return (
-        <div>
-            <h3>普通變數範例</h3>
-            <p>Count: {count}</p>
-            <button onClick={() => {count2++; console.log('count: ', count2);}}>增加</button>
-            <button onClick={() => {count2--; console.log('count: ', count2);}}>減少</button>
-        </div>
-    );
-}`}
+return (
+    <div>
+        <p>Count: {count}</p>
+        <button 
+            onClick={() => {
+                count++; 
+                console.log('count: ', count);}}>
+        增加
+        </button>
+        <button 
+            onClick={() => {
+                count--; 
+                console.log('count: ', count);}}>
+        減少
+        </button>
+    </div>
+);`}
                 </code>
             </pre>
             <p>Count: {count2}</p>
