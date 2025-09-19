@@ -48,7 +48,7 @@ const ExpensiveCalcWithoutMemo: React.FC<{ num: number }> = ({ num }) => {
 
 const UseMemoExample: React.FC = () => {
     const [count, setCount] = useState(0);
-    const [num, setNum] = useState(5);
+    const [num, setNum] = useState(0);
 
     return (<div>
         <div>
