@@ -134,7 +134,7 @@ return (
         減少
         </button>
     </div>
-);`})}),f.jsxs("p",{children:["Count: ",z]}),f.jsx("button",{onClick:()=>{z++,console.log("count: ",z)},children:"增加"}),f.jsx("button",{onClick:()=>{z--,console.log("count: ",z)},style:{marginLeft:"0.5rem"},children:"減少"}),f.jsx("p",{children:"👉 你會發現雖然 console.log 會顯示但頁面上沒有產生改變，因為 React 不會偵測到普通變數的改變。"}),f.jsx("p",{children:"👉 state 改變會觸發元件重新 render，普通變數不會。"}),f.jsx("p",{children:"👉 所以要用 state 來儲存會改變的資料。"})]})},tv=()=>{const[g,j]=w.useState(0);return w.useEffect(()=>{console.log("Timer mounted");const z=setInterval(()=>{j(h=>h+1)},1e3);return()=>{console.log("Timer unmounted"),clearInterval(z)}},[]),w.useEffect(()=>{console.log(`Timer updated: ${g} seconds`)},[g]),w.useEffect(()=>{console.log("Timer rendered")}),f.jsxs("div",{children:[f.jsx("h2",{children:"計時器"}),f.jsxs("p",{children:["已經過 ",g," 秒"]})]})},ev=()=>{const[g,j]=w.useState(!1);return f.jsxs("div",{children:[f.jsx("h3",{children:"UseEffect 範例"}),f.jsx("pre",{children:f.jsx("code",{children:`const Timer: React.FC = () => {
+);`})}),f.jsxs("p",{children:["Count: ",z]}),f.jsx("button",{onClick:()=>{z++,console.log("count: ",z)},children:"增加"}),f.jsx("button",{onClick:()=>{z--,console.log("count: ",z)},style:{marginLeft:"0.5rem"},children:"減少"}),f.jsx("p",{children:"👉 你會發現雖然 console.log 會顯示但頁面上沒有產生改變，因為 React 不會偵測到普通變數的改變。"}),f.jsx("p",{children:"👉 state 改變會觸發元件重新 render，普通變數不會。"}),f.jsx("p",{children:"👉 所以要用 state 來儲存會改變的資料。"})]})},tv=()=>{const[g,j]=w.useState(0);return w.useEffect(()=>{console.log("Timer mounted");const z=setInterval(()=>{j(h=>h+1)},1e3);return()=>{console.log("Timer unmounted"),clearInterval(z)}},[]),w.useEffect(()=>{console.log(`Timer updated: ${g} seconds`)},[g]),w.useEffect(()=>{console.log("Timer rendered")}),f.jsxs("div",{children:[f.jsx("h2",{children:"計時器"}),f.jsxs("p",{children:["已經過 ",g," 秒"]})]})},ev=()=>{const[g,j]=w.useState(!1);return f.jsxs("div",{children:[f.jsx("h3",{children:"UseEffect 範例"}),f.jsx("pre",{children:f.jsx("code",{children:`const Timer = () => {
 const [seconds, setSeconds] = useState(0);
 
 useEffect(() => {
@@ -179,7 +179,7 @@ inputRef.current.focus();
 };
     
 <input ref={inputRef} type="text" placeholder="點按鈕自動聚焦" />
-<button onClick={focusInput}>聚焦輸入框</button>`})}),f.jsx("input",{style:{marginRight:"1rem",fontSize:"1rem",padding:"0.6rem 1rem",width:"200px",borderRadius:"8px",border:"none"},ref:Y,type:"text",placeholder:"點按鈕自動聚焦"}),f.jsx("button",{onClick:Q,children:"聚焦輸入框"})]})},av=({num:g})=>{const j=w.useMemo(()=>(console.log("Memo: Performing expensive calculation..."),g*2),[g]);return f.jsxs("p",{children:["Memo result: ",j]})},nv=({num:g})=>{const j=(console.log("Without Memo: Performing expensive calculation..."),g*2);return f.jsxs("p",{children:["Without memo result: ",j]})},cv=()=>{const[g,j]=w.useState(0),[z,h]=w.useState(0);return f.jsxs("div",{children:[f.jsx("h3",{children:"useMemo 範例"}),f.jsx("pre",{children:f.jsx("code",{children:`const ExpensiveCalcWithMemo: React.FC<{ num: number }> = ({ num }) => {
+<button onClick={focusInput}>聚焦輸入框</button>`})}),f.jsx("input",{style:{marginRight:"1rem",fontSize:"1rem",padding:"0.6rem 1rem",width:"200px",borderRadius:"8px",border:"none"},ref:Y,type:"text",placeholder:"點按鈕自動聚焦"}),f.jsx("button",{onClick:Q,children:"聚焦輸入框"})]})},av=({num:g})=>{const j=w.useMemo(()=>(console.log("Memo: Performing expensive calculation..."),g*2),[g]);return f.jsxs("p",{children:["Memo result: ",j]})},nv=({num:g})=>{const j=(console.log("Without Memo: Performing expensive calculation..."),g*2);return f.jsxs("p",{children:["Without memo result: ",j]})},cv=()=>{const[g,j]=w.useState(0),[z,h]=w.useState(0);return f.jsxs("div",{children:[f.jsx("h3",{children:"useMemo 範例"}),f.jsx("pre",{children:f.jsx("code",{children:`const ExpensiveCalcWithMemo = ({ num }) => {
     const result = useMemo(() => {
         console.log("Memo: Performing expensive calculation...");
         return num * 2;
@@ -188,7 +188,7 @@ inputRef.current.focus();
     return <p>Memo result: {result}</p>;
 };
 
-const ExpensiveCalcWithoutMemo: React.FC<{ num: number }> = ({ num }) => {
+const ExpensiveCalcWithoutMemo = ({ num }) => {
     const result = (() => {
         console.log("Without Memo: Performing expensive calculation...");
         return num * 2;
@@ -197,7 +197,7 @@ const ExpensiveCalcWithoutMemo: React.FC<{ num: number }> = ({ num }) => {
     return <p>Without memo result: {result}</p>;
 }
 
-const UseMemoExample: React.FC = () => {
+const UseMemoExample = () => {
     const [count, setCount] = useState(0);
     const [num, setNum] = useState(0);
 
@@ -236,6 +236,7 @@ const UseCallbackExample = () => {
         <p>Count: {count}</p>
         <button onClick={() => setCount(count + 1)}>增加</button>
         <Child onClick={handleClick} />
+        <ChildWithoutUseCallback onClick={handleClickWithoutUseCallback} />
     </div>
   );
 };`})}),f.jsxs("p",{children:["Count: ",g]}),f.jsx("button",{onClick:()=>j(g+1),children:"增加"}),f.jsx(iv,{onClick:z}),f.jsx(fv,{onClick:h}),f.jsx("p",{style:{marginTop:"3rem"},children:"👉 Child 元件有用 useCallback 搭配 memo，所以不會重複 render。"}),f.jsx("p",{children:"👉 ChildWithoutUseCallback 元件沒有用 useCallback 搭配 memo，所以每次父元件 render 都會重複 render。"})]})},ov=()=>{const g=w.useContext(ef);if(!g)return null;const{theme:j,setTheme:z}=g;return f.jsxs("button",{onClick:()=>z(j==="light"?"dark":"light"),style:{backgroundColor:j==="light"?"#eee":"#333",color:j==="light"?"#000":"#fff",padding:"0.5rem 1rem",border:"none",borderRadius:"4px",cursor:"pointer"},children:["切換主題1 (目前 ",j,")"]})},rv=()=>{const g=w.useContext(ef);if(!g)return null;const{theme:j,setTheme:z}=g;return f.jsxs("button",{onClick:()=>z(j==="light"?"dark":"light"),style:{backgroundColor:j==="light"?"#eee":"#333",color:j==="light"?"#000":"#fff",padding:"0.5rem 1rem",border:"none",borderRadius:"4px",cursor:"pointer",marginLeft:"1rem"},children:["切換主題2 (目前 ",j,")"]})},dv=()=>f.jsxs("div",{children:[f.jsx(ov,{}),f.jsx(rv,{})]}),ef=w.createContext(null),hv=()=>{const[g,j]=w.useState("light");return f.jsxs(ef.Provider,{value:{theme:g,setTheme:j},children:[f.jsx("h3",{children:"useContext 範例"}),f.jsx("h4",{children:"1. 建立 Context"}),f.jsx("pre",{children:f.jsx("code",{children:`import React, { createContext, useState } from "react";
