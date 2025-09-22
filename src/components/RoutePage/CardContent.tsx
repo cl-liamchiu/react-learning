@@ -157,8 +157,70 @@ export default function Dashboard() {
 };`}
                 </code>
               </pre>
-              <p></p>
             </ul>
+          </li>
+        </ol>
+      </>
+    ),
+  },
+  {
+    title: '路由的演變與 GitHub Pages 的情境',
+    content: (
+      <>
+        <h3>傳統 MPA（Multi-Page Application）</h3>
+        <ul>
+          <li>
+            過去每個頁面都有一份實體 HTML 檔，例如：
+            <ul>
+              <li>/index.html → 首頁</li>
+              <li>/about.html → 關於</li>
+            </ul>
+          </li>
+          <li>
+            當使用者改變網址，瀏覽器會 直接向伺服器請求對應的 HTML
+            檔，整頁刷新後載入。
+          </li>
+        </ul>
+        <h3>現代 SPA（Single-Page Application）</h3>
+        <ul>
+          <li>
+            只有一份 HTML 檔（通常是 index.html），其他頁面由 JavaScript
+            動態載入。
+          </li>
+          <li>
+            透過 History API (pushState, replaceState)
+            改變網址，瀏覽器不會真的送出 HTTP 請求。
+          </li>
+          <li>
+            React Router 就是基於這個原理，攔截網址變化，對應到不同的
+            Component。
+          </li>
+          <li>結果：看似「換頁」，其實是「同一頁裡 render 不同元件」。</li>
+        </ul>
+        <h3>GitHub Pages 上的問題</h3>
+        <ul>
+          <li>
+            點擊 {`<Link>`} 切換：不會有 request，因為 React Router
+            攔截並直接切換元件。
+          </li>
+          <li>
+            重新整理 / 直接輸入深層網址：瀏覽器會真的向伺服器請求該路徑（例如
+            /about）。
+          </li>
+          <li>
+            GitHub Pages 只是一個純靜態檔伺服器，找不到 /about.html 就會回 404。
+          </li>
+        </ul>
+        <p>解決方式</p>
+        <ol>
+          <li>
+            HashRouter: 網址帶 #（例如 /index.html#/about），伺服器忽略
+            #，永遠回 index.html。
+          </li>
+          <li>
+            404.html fallback: 在部署時把 index.html 複製成 404.html。當 GH
+            Pages 找不到路徑，就回傳這份 404.html（其實是 React App），由 Router
+            根據網址決定畫面。
           </li>
         </ol>
       </>
