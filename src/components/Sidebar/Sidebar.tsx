@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router';
 
 import './Sidebar.css';
 
@@ -23,6 +24,12 @@ const Sidebar: React.FC<SidebarProps> = ({
         {page.label}
       </button>
     ))}
+    <NavLink
+      to="/route-mode/route-info"
+      className={({ isActive }) => `sidebar-btn ${isActive ? 'active' : ''}`}
+    >
+      Switch to Router
+    </NavLink>
   </aside>
 );
 

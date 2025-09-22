@@ -12,6 +12,17 @@
 }
 
 .sidebar-btn {
+  line-height: 20px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+
   padding: 1rem;
   background: none;
   border: none;
@@ -25,4 +36,8 @@
 .sidebar-btn.active {
   background: #323232;
   font-weight: bold;
+}
+
+.sidebar-btn:hover {
+  color: inherit;
 }

@@ -24,12 +24,8 @@ function App() {
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
-      <Sidebar
-        pages={pages}
-        activePage={activePage}
-        setActivePage={setActivePage}
-      />
-      <main style={{ flex: 1, padding: '2rem' }}>
+      <Sidebar pages={pages} activePage={activePage} setActivePage={setActivePage} />
+      <main style={{ flex: 1, padding: '2rem'}}>
         {activePage === 'reactInfo' && <ReactInfo />}
         {activePage === 'component' && <ComponentInfo />}
         {activePage === 'hooks' && <HooksIntro />}
@@ -40,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;   
