@@ -6,6 +6,8 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Homework1 from './components/Homework1/Homework1';
 import Homework2 from './components/Homework2/Homework2';
 import HooksIntro from './components/HooksIntro/HooksIntro';
+import RouteInfo from './components/RoutePage/RouteInfo';
+import CanvasIntro from './components/Canva/CanvasIntro';
 
 function App() {
   const [activePage, setActivePage] = useState('reactInfo');
@@ -16,6 +18,8 @@ function App() {
     { key: 'hooks', label: 'Hooks' },
     { key: 'hw1', label: 'Homework 1' },
     { key: 'hw2', label: 'Homework 2' },
+    { key: 'route', label: 'Route 簡介' },
+    { key: 'canva', label: 'Canva 簡介' },
   ];
 
   useEffect(() => {
@@ -24,16 +28,22 @@ function App() {
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
-      <Sidebar pages={pages} activePage={activePage} setActivePage={setActivePage} />
-      <main style={{ flex: 1, padding: '2rem'}}>
+      <Sidebar
+        pages={pages}
+        activePage={activePage}
+        setActivePage={setActivePage}
+      />
+      <main style={{ flex: 1, padding: '2rem' }}>
         {activePage === 'reactInfo' && <ReactInfo />}
         {activePage === 'component' && <ComponentInfo />}
         {activePage === 'hooks' && <HooksIntro />}
         {activePage === 'hw1' && <Homework1 />}
         {activePage === 'hw2' && <Homework2 />}
+        {activePage === 'route' && <RouteInfo />}
+        {activePage === 'canva' && <CanvasIntro />}
       </main>
     </div>
   );
 }
 
-export default App;   
+export default App;

@@ -6,6 +6,7 @@ import ComponentInfo from '../components/ComponentPage/ComponentInfo';
 import HooksIntro from '../components/HooksIntro/HooksIntro';
 import HomeworkPage from '../components/HomeworkPage/HomeworkPage';
 import RouteInfo from '../components/RoutePage/RouteInfo';
+import CanvasIntro from '../components/Canva/CanvasIntro';
 
 export default function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ export default function AppRoutes() {
         <Route path="hooks" element={<HooksIntro />} />
         <Route path="hw/:id" element={<HomeworkPage />} />
         <Route path="route-info" element={<RouteInfo />} />
+        <Route path="canva" element={<CanvasIntro />} />
       </Route>
     </Routes>
   );
