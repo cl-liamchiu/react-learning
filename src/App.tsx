@@ -19,7 +19,7 @@ function App() {
     { key: 'hw1', label: 'Homework 1' },
     { key: 'hw2', label: 'Homework 2' },
     { key: 'route', label: 'Route 簡介' },
-    { key: 'canva', label: 'Canva 簡介' },
+    { key: 'canvas', label: 'Canvas 簡介' },
   ];
 
   useEffect(() => {
@@ -40,7 +40,7 @@ function App() {
         {activePage === 'hw1' && <Homework1 />}
         {activePage === 'hw2' && <Homework2 />}
         {activePage === 'route' && <RouteInfo />}
-        {activePage === 'canva' && <CanvasIntro />}
+        {activePage === 'canvas' && <CanvasIntro />}
       </main>
     </div>
   );

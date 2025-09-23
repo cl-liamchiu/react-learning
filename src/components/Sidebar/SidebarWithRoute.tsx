@@ -11,7 +11,7 @@ const SidebarWithRoute: React.FC = () => {
     { key: 'hw/1', label: 'Homework 1' },
     { key: 'hw/2', label: 'Homework 2' },
     { key: 'route-info', label: 'Router 簡介' },
-    { key: 'canva', label: 'Canva 簡介' },
+    { key: 'canvas', label: 'Canvas 簡介' },
   ];
 
   return (

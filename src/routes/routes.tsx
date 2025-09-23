@@ -18,7 +18,7 @@ export default function AppRoutes() {
         <Route path="hooks" element={<HooksIntro />} />
         <Route path="hw/:id" element={<HomeworkPage />} />
         <Route path="route-info" element={<RouteInfo />} />
-        <Route path="canva" element={<CanvasIntro />} />
+        <Route path="canvas" element={<CanvasIntro />} />
       </Route>
     </Routes>
   );
