@@ -8,104 +8,22 @@ export interface CardItem {
 
 export const cardData: CardItem[] = [
   {
-    title: 'Canvas Basic Usage',
+    title: '座標系統 (Coordinate system)',
     content: (
       <>
-        <h3>1. Canvas 是什麼？</h3>
-        <ul>
-          <li>{`<canvas>`} 是一個 HTML 標籤，本身只是一塊「空白畫布」。</li>
-          <li>不會自動畫東西，需要透過 JavaScript 操作。</li>
-        </ul>
-
-        <h3>2. getContext() → 拿到「畫筆」</h3>
-        <ul>
-          <li>
-            <code>getContext("2d")</code> → 2D 繪圖環境
-            (CanvasRenderingContext2D)
-          </li>
-          <li>
-            <code>getContext("webgl")</code> → WebGL 繪圖環境 (3D 渲染)
-          </li>
-          <li>
-            可以把 <b>canvas 想成紙</b>，<b>getContext() 想成筆</b>。
-          </li>
-          <li>之後所有繪圖都要透過這支「筆」來操作。</li>
-        </ul>
-
-        <h3>3. 傳統 JS 的寫法</h3>
-        <pre>
-          <code>
-            {`const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-
-// 畫一個藍色矩形
-ctx.fillStyle = "skyblue";
-ctx.fillRect(20, 20, 150, 100);`}
-          </code>
-        </pre>
-        <ol>
-          <li>
-            找到 <code>&lt;canvas id="canvas"&gt;</code> 元素
-          </li>
-          <li>
-            用 <code>getContext("2d")</code> 拿到畫筆 → ctx
-          </li>
-          <li>
-            透過 ctx 方法繪圖（<code>fillRect</code>, <code>arc</code>…）
-          </li>
-        </ol>
-
-        <h3>4. React 裡的寫法</h3>
-        <p>
-          React 不用 <code>document.getElementById</code>，而是透過{' '}
-          <b>useRef</b> 存取 DOM：
-        </p>
-        <pre>
-          <code>
-            {`import { useRef, useEffect } from "react";
-
-export default function CanvasExample() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current!;
-    const ctx = canvas.getContext("2d")!;
-
-    ctx.fillStyle = "skyblue";
-    ctx.fillRect(20, 20, 150, 100);
-  }, []);
-
-  return <canvas ref={canvasRef} width={400} height={200} />;
-}`}
-          </code>
-        </pre>
-
-        <h3>✅ 總結</h3>
-        <ul>
-          <li>Canvas 是紙，getContext 是筆。</li>
-          <li>
-            傳統 JS → <code>getElementById</code> + <code>getContext</code>
-          </li>
-          <li>
-            React → <code>useRef</code> + <code>useEffect</code>
-          </li>
-        </ul>
-        <CanvasExamples.BasicExample />
-      </>
-    ),
-  },
-  {
-    title: 'Canvas API (2D context 常用指令)',
-    content: (
-      <>
-        <h3>座標系統 (Coordinate system)</h3>
         <ul>
           <li>原點 (0,0) 在左上角</li>
           <li>x 軸：往右增加</li>
           <li>y 軸：往下增加</li>
           <li>單位 = 畫素 (px)</li>
         </ul>
-        <h3>1. 矩形 (Rectangles)</h3>
+      </>
+    ),
+  },
+  {
+    title: '1. 矩形 (Rectangles)',
+    content: (
+      <>
         <ul>
           <li>
             <code>fillRect(x, y, w, h)</code> → 填滿矩形
@@ -125,8 +43,13 @@ ctx.strokeRect(50, 50, 50, 50);`}
           </code>
         </pre>
         <CanvasExamples.RectangleExample />
-
-        <h3>2. 路徑 (Paths)</h3>
+      </>
+    ),
+  },
+  {
+    title: '2.路徑 (Paths)',
+    content: (
+      <>
         <p>
           先 <code>beginPath()</code> 開始路徑，再用線條/弧線，最後{' '}
           <code>stroke()</code> 或 <code>fill()</code>。
@@ -159,8 +82,13 @@ ctx.stroke();`}
           </code>
         </pre>
         <CanvasExamples.PathsExample />
-
-        <h3>3. 顏色與樣式 (Colors & Styles)</h3>
+      </>
+    ),
+  },
+  {
+    title: '3. 顏色與樣式 (Colors & Styles)',
+    content: (
+      <>
         <ul>
           <li>
             <code>
@@ -189,8 +117,13 @@ ctx.fillRect(20, 20, 200, 100);`}
           </code>
         </pre>
         <CanvasExamples.StylesExample />
-
-        <h3>4. 文字 (Text)</h3>
+      </>
+    ),
+  },
+  {
+    title: '4. 文字 (Text)',
+    content: (
+      <>
         <ul>
           <li>
             <code>font = "20px Arial"</code>
@@ -212,7 +145,13 @@ ctx.fillText("Hello Canvas", 50, 100);`}
           </code>
         </pre>
         <CanvasExamples.TextExample />
-        <h3>5. 變形 (Transformations)</h3>
+      </>
+    ),
+  },
+  {
+    title: '5. 變形 (Transformations)',
+    content: (
+      <>
         <ul>
           <li>
             <code>translate(x, y)</code> → 改變原點位置
@@ -232,8 +171,13 @@ ctx.fillRect(-50, -50, 100, 100); // 會旋轉後畫`}
           </code>
         </pre>
         <CanvasExamples.TransformationsExample />
-
-        <h3>6. 狀態保存 (State)</h3>
+      </>
+    ),
+  },
+  {
+    title: '6. 狀態保存 (State)',
+    content: (
+      <>
         <ul>
           <li>
             <code>save()</code> → 保存目前狀態（樣式、變形等）
@@ -253,8 +197,13 @@ ctx.fillRect(80, 20, 50, 50); // 會是預設黑色
           </code>
         </pre>
         <CanvasExamples.StateExample />
-
-        <h3>7. 圖片 (Images)</h3>
+      </>
+    ),
+  },
+  {
+    title: '7. 圖片 (Images)',
+    content: (
+      <>
         <ul>
           <li>
             <code>drawImage(img, dx, dy)</code> → 把圖片原尺寸，直接畫到 (dx,
@@ -282,14 +231,19 @@ img.onload = () => {
           </code>
         </pre>
         <CanvasExamples.ImagesExample />
-
-        <h3>8. 像素操作 (Pixel Manipulation)</h3>
+      </>
+    ),
+  },
+  {
+    title: '8. 像素操作 (Pixel Manipulation)',
+    content: (
+      <>
         <p>
           Canvas 不只能畫圖形，還能直接存取與修改「像素資料」。
           這讓我們可以實作濾鏡（灰階、反相、模糊）、特效或影像分析。
         </p>
 
-        <h4>核心 API</h4>
+        <h3>核心 API</h3>
         <ul>
           <li>
             <code>getImageData(x, y, w, h)</code> →
@@ -302,7 +256,7 @@ img.onload = () => {
           <li>每個像素由 RGBA 四個值組成（範圍 0~255）。</li>
         </ul>
 
-        <h4>ImageData 結構</h4>
+        <h3>ImageData 結構</h3>
         <ul>
           <li>
             <code>imageData.width</code> → 寬度（像素數）
@@ -319,7 +273,7 @@ img.onload = () => {
           </li>
         </ul>
 
-        <h4>範例：轉成灰階</h4>
+        <h3>範例：轉成灰階</h3>
         <pre>
           <code>
             {`ctx.drawImage(img, 0, 0, 400, 200);
@@ -337,7 +291,7 @@ ctx.putImageData(imageData, 0, 0);`}
         </pre>
         <CanvasExamples.PixelExample />
 
-        <h4>範例：複製區塊到其他位置</h4>
+        <h3>範例：複製區塊到其他位置</h3>
         <pre>
           <code>
             {`ctx.drawImage(img, 0, 0, 200, 100);
@@ -346,8 +300,13 @@ ctx.putImageData(imageData, 200, 100);`}
           </code>
         </pre>
         <CanvasExamples.PixelExample2 />
-
-        <h3>9. 動畫 (Animation)</h3>
+      </>
+    ),
+  },
+  {
+    title: '9. 動畫 (Animation)',
+    content: (
+      <>
         <p>
           在 Canvas 裡做動畫的核心概念是：
           <b>「不斷清空畫布 → 更新狀態 → 重繪畫面」</b>。 早期會用{' '}
@@ -356,7 +315,7 @@ ctx.putImageData(imageData, 200, 100);`}
           60fps）， 讓動畫更流暢並自動節能。
         </p>
 
-        <h4>基本流程</h4>
+        <h3>基本流程</h3>
         <ol>
           <li>
             清空畫布（<code>ctx.clearRect(...)</code>）
@@ -368,7 +327,7 @@ ctx.putImageData(imageData, 200, 100);`}
           </li>
         </ol>
 
-        <h4>範例：基本動畫迴圈</h4>
+        <h3>範例：基本動畫迴圈</h3>
         <p>
           在 React 通常會用 <code>useRef</code> 來保存 canvas DOM 和動畫 id，
           並在 <code>useEffect</code> 中啟動與清理：
@@ -428,7 +387,7 @@ return (
         </pre>
         <CanvasExamples.AnimationsExample />
 
-        <h4>小重點</h4>
+        <h3>小重點</h3>
         <ul>
           <li>
             <code>setInterval</code>：固定時間呼叫，可能不流暢。

@@ -1,5 +1,5 @@
 import Card from '../Card/Card';
-import { cardData } from './CardContent';
+import { cardData } from './BasicUsageContent';
 
 const CanvasIntro = () => {
   return (

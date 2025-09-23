@@ -6,7 +6,8 @@ import ComponentInfo from '../components/ComponentPage/ComponentInfo';
 import HooksIntro from '../components/HooksIntro/HooksIntro';
 import HomeworkPage from '../components/HomeworkPage/HomeworkPage';
 import RouteInfo from '../components/RoutePage/RouteInfo';
-import CanvasIntro from '../components/Canva/CanvasIntro';
+import CanvasIntro from '../components/Canvas/CanvasIntro';
+import CanvasAPI from '../components/Canvas/CanvasAPI';
 
 export default function AppRoutes() {
   return (
@@ -19,6 +20,7 @@ export default function AppRoutes() {
         <Route path="hw/:id" element={<HomeworkPage />} />
         <Route path="route-info" element={<RouteInfo />} />
         <Route path="canvas" element={<CanvasIntro />} />
+        <Route path="canvas-api" element={<CanvasAPI />} />
       </Route>
     </Routes>
   );
