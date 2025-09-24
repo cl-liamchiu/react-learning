@@ -25,7 +25,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       </button>
     ))}
     <NavLink
-      to="/route-mode/route-info"
+      to="/route-mode/react-route-info"
       className={({ isActive }) => `sidebar-btn ${isActive ? 'active' : ''}`}
     >
       Switch to Router

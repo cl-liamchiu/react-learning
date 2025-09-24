@@ -8,6 +8,7 @@ import HomeworkPage from '../components/HomeworkPage/HomeworkPage';
 import RouteInfo from '../components/RoutePage/RouteInfo';
 import CanvasIntro from '../components/Canvas/CanvasIntro';
 import CanvasAPI from '../components/Canvas/CanvasAPI';
+import ImageManipulation from '../components/Canvas/ImageManipulation';
 
 export default function AppRoutes() {
   return (
@@ -15,12 +16,14 @@ export default function AppRoutes() {
       <Route path="/" element={<App />} />
       <Route path="/route-mode" element={<Layout />}>
         <Route path="react-info" element={<ReactInfo />} />
-        <Route path="component" element={<ComponentInfo />} />
-        <Route path="hooks" element={<HooksIntro />} />
-        <Route path="hw/:id" element={<HomeworkPage />} />
-        <Route path="route-info" element={<RouteInfo />} />
+        <Route path="react-component" element={<ComponentInfo />} />
+        <Route path="react-hooks" element={<HooksIntro />} />
+        <Route path="react-hw/:id" element={<HomeworkPage />} />
+        <Route path="react-route-info" element={<RouteInfo />} />
         <Route path="canvas" element={<CanvasIntro />} />
         <Route path="canvas-api" element={<CanvasAPI />} />
+        <Route path="canvas-image-manipulation" element={<ImageManipulation />} />
+        <Route path="canvas-hw/:id" element={<HomeworkPage />} />
       </Route>
     </Routes>
   );

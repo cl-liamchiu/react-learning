@@ -10,40 +10,30 @@ const SidebarWithRoute: React.FC = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const isCanvasPage = pathname.includes('canvas');
+  const isReactPage = pathname.includes('react');
 
   const reactPages = [
     { key: 'react-info', label: 'React 簡介' },
-    { key: 'component', label: 'Component 介紹' },
-    { key: 'hooks', label: 'Hooks' },
-    { key: 'hw/1', label: 'Homework 1' },
-    { key: 'hw/2', label: 'Homework 2' },
-    { key: 'route-info', label: 'Router 簡介' },
+    { key: 'react-component', label: 'Component 介紹' },
+    { key: 'react-hooks', label: 'Hooks' },
+    { key: 'react-hw/1', label: 'Homework 1' },
+    { key: 'react-hw/2', label: 'Homework 2' },
+    { key: 'react-route-info', label: 'Router 簡介' },
   ];
 
   const canvasPages = [
     { key: 'react-info', label: 'React 簡介' },
     { key: 'canvas', label: 'Canvas 簡介' },
     { key: 'canvas-api', label: 'Canvas API' },
+    { key: 'canvas-image-manipulation', label: 'Image Manipulation' },
+    { key: 'canvas-hw/3', label: 'Homework 3' },
+    { key: 'canvas-hw/4', label: 'Homework 4' },
+    { key: 'canvas-hw/5', label: 'Homework 5' },
   ];
 
   return (
     <aside className="sidebar">
-      {isCanvasPage ? (
-        <>
-          {canvasPages.map((page) => (
-            <NavLink
-              key={page.key}
-              to={`/route-mode/${page.key}`}
-              className={({ isActive }) =>
-                `sidebar-btn${isActive ? ' active' : ''}`
-              }
-            >
-              {page.label}
-            </NavLink>
-          ))}
-        </>
-      ) : (
+      {isReactPage ? (
         <>
           {reactPages.map((page) => (
             <NavLink
@@ -72,6 +62,20 @@ const SidebarWithRoute: React.FC = () => {
           >
             Canvas 簡介
           </NavLink>
+        </>
+      ) : (
+        <>
+          {canvasPages.map((page) => (
+            <NavLink
+              key={page.key}
+              to={`/route-mode/${page.key}`}
+              className={({ isActive }) =>
+                `sidebar-btn${isActive ? ' active' : ''}`
+              }
+            >
+              {page.label}
+            </NavLink>
+          ))}
         </>
       )}
     </aside>
