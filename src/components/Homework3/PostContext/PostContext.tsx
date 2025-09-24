@@ -12,8 +12,11 @@ export const PostProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const removeLastPost = () => setPosts((prev) => prev.slice(0, -1));
 
+  const removePost: PostContextType['removePost'] = (id) =>
+    setPosts((prev) => prev.filter((post) => post.id !== id));
+
   return (
-    <PostContext.Provider value={{ posts, addPost, removeLastPost }}>
+    <PostContext.Provider value={{ posts, addPost, removeLastPost, removePost }}>
       {children}
     </PostContext.Provider>
   );
