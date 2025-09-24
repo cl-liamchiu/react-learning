@@ -1,0 +1,121 @@
+.post {
+  margin: 2rem auto;
+  background: #232323;
+  color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.post--board {
+  max-width: 1000px;
+}
+
+.post--create {
+  max-width: 500px;
+}
+
+.post-form {
+  margin-bottom: 2rem;
+}
+
+.post-form input,
+.post-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  background: #323232;
+  color: #fff;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.post-form button {
+  width: 180px;
+  background: #61dafb;
+  color: #232323;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.post-form .remove-btn {
+  background: #ff6b6b;
+  color: #fff;
+}
+
+.edit-btn {
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  background: #ffd700;
+  color: #232323;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.post-item {
+  width: 30%;
+  background: #323232;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.post-item h3 {
+  margin-top: 0;
+}
+
+.post-item img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.post-item .edit-btn {
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  background: #ffd700;
+  color: #232323;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.post-item .delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem;
+  font-weight: bold;
+  cursor: pointer;
+}
