@@ -25,7 +25,7 @@ const SidebarWithRoute: React.FC = () => {
     { key: 'react-info', label: 'React 簡介' },
     { key: 'canvas', label: 'Canvas 簡介' },
     { key: 'canvas-api', label: 'Canvas API' },
-    { key: 'canvas-image-manipulation', label: 'Image Manipulation' },
+    // { key: 'canvas-image-manipulation', label: 'Image Manipulation' },
     { key: 'canvas-hw/3', label: 'Homework 3' },
     { key: 'canvas-hw/4', label: 'Homework 4' },
     { key: 'canvas-hw/5', label: 'Homework 5' },
