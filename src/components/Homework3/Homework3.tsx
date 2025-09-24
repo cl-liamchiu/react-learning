@@ -1,5 +1,5 @@
 import { HWData } from './HomeworkContent';
-import HomeworkDescription from '../HomeworkDescription.tsx/HomeworkDescription';
+import HomeworkDescription from '../HomeworkDescription/HomeworkDescription';
 import { Link } from 'react-router';
 
 const Homework3 = () => {

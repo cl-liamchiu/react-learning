@@ -13,11 +13,13 @@ import ImageManipulation from '../components/Canvas/ImageManipulation';
 import PostBoard from '../components/Homework3/PostBoard';
 import CreatePostPage from '../components/Homework3/CreatePostPage';
 import { PostProvider } from '../components/Homework3/PostContext/PostContext';
+import AsciiDonutCanvas from '../components/Canvas/AsciiDountAnimation';
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<App />} />
+      <Route path="/ascii-donut" element={<AsciiDonutCanvas />} />
       <Route path="/route-mode" element={<Layout />}>
         <Route path="react-info" element={<ReactInfo />} />
         <Route path="react-component" element={<ComponentInfo />} />

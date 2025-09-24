@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import * as CanvasExamples from './CanvasExamples';
+import { Link } from 'react-router';
 
 export interface CardItem {
   title: string;
@@ -386,6 +387,9 @@ return (
           </code>
         </pre>
         <CanvasExamples.AnimationsExample />
+        <div>
+          <Link to="/ascii-donut">ASCII 甜甜圈動畫</Link>
+        </div>
 
         <h3>小重點</h3>
         <ul>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HomeworkDescription from '../HomeworkDescription.tsx/HomeworkDescription';
+import HomeworkDescription from '../HomeworkDescription/HomeworkDescription';
 import { HWData } from './HomeworkContent';
 
 const Homework1: React.FC = () => {
