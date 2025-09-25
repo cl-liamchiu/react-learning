@@ -4,11 +4,12 @@ const CANVAS_SIZE = 500;
 
 const CanvasImageEditor: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [image, setImage] = useState<HTMLImageElement | null>(null);
-  const [fileKey, setFileKey] = useState(0); // force input reset
-  const [rotation, setRotation] = useState(0);
-  const [blur, setBlur] = useState(0);
+  const imageRef = useRef<HTMLImageElement | null>(null);
+  const [fileKey, setFileKey] = useState(0); // keep as state for input reset
+  const rotationRef = useRef(0);
+  const blurRef = useRef(0);
   const [filename, setFilename] = useState('');
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   // Draw image with current rotation and blur, scaling to fit canvas
   const drawImage = (img: HTMLImageElement, rot: number, blurVal: number) => {
@@ -57,10 +58,11 @@ const CanvasImageEditor: React.FC = () => {
     reader.onload = () => {
       const img = new window.Image();
       img.onload = () => {
-        setImage(img);
-        setRotation(0);
-        setBlur(0);
+        imageRef.current = img;
+        rotationRef.current = 0;
+        blurRef.current = 0;
         drawImage(img, 0, 0);
+        setImageLoaded(true);
       };
       img.src = reader.result as string;
     };
@@ -71,23 +73,28 @@ const CanvasImageEditor: React.FC = () => {
 
   // Redraw when rotation or blur changes
   React.useEffect(() => {
-    if (image) drawImage(image, rotation, blur);
-  }, [rotation, blur, image]);
+    // No-op: no UI state to watch
+  }, []);
 
   // Rotate image
   const handleRotate = () => {
-    setRotation((r) => (r + 90) % 360);
+    if (!imageRef.current) return;
+    rotationRef.current = (rotationRef.current + 90) % 360;
+    drawImage(imageRef.current, rotationRef.current, blurRef.current);
   };
 
   // Blur image
   const handleBlur = () => {
-    setBlur((b) => Math.min(b + 2, 20));
+    if (!imageRef.current) return;
+    blurRef.current = Math.min(blurRef.current + 2, 20);
+    drawImage(imageRef.current, rotationRef.current, blurRef.current);
   };
 
   // Download image
   const handleDownload = () => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || !imageRef.current) return;
+    drawImage(imageRef.current, rotationRef.current, blurRef.current); // ensure latest
     const link = document.createElement('a');
     link.download = 'edited-image.png';
     link.href = canvas.toDataURL('image/png');
@@ -152,19 +159,19 @@ const CanvasImageEditor: React.FC = () => {
       <div style={{ marginBottom: '1rem' }}>
         <button
           onClick={handleRotate}
-          disabled={!image}
+          disabled={!imageLoaded}
           style={{ marginRight: '1rem' }}
         >
           Rotate 90°
         </button>
         <button
           onClick={handleBlur}
-          disabled={!image}
+          disabled={!imageLoaded}
           style={{ marginRight: '1rem' }}
         >
           Blur
         </button>
-        <button onClick={handleDownload} disabled={!image}>
+        <button onClick={handleDownload} disabled={!imageLoaded}>
           Download
         </button>
       </div>
