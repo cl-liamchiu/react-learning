@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 import './PostBoard.css';
 
 const PostBoard: React.FC = () => {
-  const { posts, removeLastPost, addPost, removePost } = usePostContext();
+  const { posts, removeLastPost, removePost, updatePost } = usePostContext();
   const navigate = useNavigate();
   const [editingId, setEditingId] = React.useState<number | null>(null);
   const [editForm, setEditForm] = React.useState<{
@@ -49,8 +49,13 @@ const PostBoard: React.FC = () => {
     e.preventDefault();
     if (!editForm.title || !editForm.content) return;
     // Remove old post and add updated one
-    removePost(editingId!);
-    addPost({
+    // removePost(editingId!);
+    // addPost({
+    //   title: editForm.title,
+    //   content: editForm.content,
+    //   image: editForm.image,
+    // });
+    updatePost(editingId!, {
       title: editForm.title,
       content: editForm.content,
       image: editForm.image,

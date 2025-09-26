@@ -12,6 +12,7 @@ export interface PostContextType {
   addPost: (post: Omit<Post, 'id'>) => void;
   removeLastPost: () => void;
   removePost: (id: number) => void;
+  updatePost: (id: number, updated: Partial<Omit<Post, 'id'>>) => void;
 }
 
 export const PostContext = createContext<PostContextType | undefined>(

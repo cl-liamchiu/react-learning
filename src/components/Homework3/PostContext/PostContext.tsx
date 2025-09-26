@@ -15,8 +15,14 @@ export const PostProvider: React.FC<{ children: React.ReactNode }> = ({
   const removePost: PostContextType['removePost'] = (id) =>
     setPosts((prev) => prev.filter((post) => post.id !== id));
 
+  const updatePost = (id: number, updated: Partial<Omit<Post, 'id'>>) => {
+    setPosts((posts) =>
+      posts.map((post) => (post.id === id ? { ...post, ...updated } : post)),
+    );
+  }
+
   return (
-    <PostContext.Provider value={{ posts, addPost, removeLastPost, removePost }}>
+    <PostContext.Provider value={{ posts, addPost, removeLastPost, removePost, updatePost }}>
       {children}
     </PostContext.Provider>
   );
