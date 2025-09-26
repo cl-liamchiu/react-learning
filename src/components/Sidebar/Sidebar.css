@@ -11,6 +11,75 @@
   z-index: 100;
 }
 
+@media (max-width: 700px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    flex: none;
+    height: auto;
+    left: 0;
+    top: 0;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #333;
+    z-index: 100;
+  }
+  .mobile-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: #232323;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 110;
+  }
+  .hamburger-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .sidebar-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 120;
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+  .sidebar-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #232323;
+    z-index: 130;
+    transform: translateX(0);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+  }
+  .sidebar-drawer[aria-hidden='true'] {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+  }
+  .sidebar-drawer button[aria-label='Close menu'] {
+    align-self: flex-end;
+    margin: 1rem;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
 .sidebar-btn {
   line-height: 20px;
   border-radius: 8px;

@@ -1,3 +1,15 @@
+.app-shell {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+/* 主內容可伸展且不撐出水平捲軸 */
+main {
+  flex: 1 1 auto;
+  min-width: 0; /* 這行很關鍵 */
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -25,14 +37,32 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  /* place-items: center; */
+  flex-direction: column;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+img,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 700px) {
+  main {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
 }
 
 button {
@@ -72,4 +102,17 @@ pre {
   padding: 0.8rem 0.8rem;
   border-radius: 4px;
   font-family: monospace;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 700px) {
+  .app-shell {
+    flex-direction: column;
+  }
+
+  main {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
 }

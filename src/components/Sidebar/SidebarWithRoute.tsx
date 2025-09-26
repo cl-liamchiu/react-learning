@@ -3,7 +3,11 @@ import { NavLink, useLocation } from 'react-router';
 
 import './Sidebar.css';
 
-const SidebarWithRoute: React.FC = () => {
+interface SidebarWithRouteProps {
+  onNavigate?: () => void;
+}
+
+const SidebarWithRoute: React.FC<SidebarWithRouteProps> = ({ onNavigate }) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -42,6 +46,7 @@ const SidebarWithRoute: React.FC = () => {
               className={({ isActive }) =>
                 `sidebar-btn${isActive ? ' active' : ''}`
               }
+              onClick={onNavigate}
             >
               {page.label}
             </NavLink>
@@ -51,6 +56,7 @@ const SidebarWithRoute: React.FC = () => {
             className={({ isActive }) =>
               `sidebar-btn${isActive ? ' active' : ''}`
             }
+            onClick={onNavigate}
           >
             Switch to Non-Route
           </NavLink>
@@ -59,6 +65,7 @@ const SidebarWithRoute: React.FC = () => {
             className={({ isActive }) =>
               `sidebar-btn${isActive ? ' active' : ''}`
             }
+            onClick={onNavigate}
           >
             Canvas 簡介
           </NavLink>
@@ -72,6 +79,7 @@ const SidebarWithRoute: React.FC = () => {
               className={({ isActive }) =>
                 `sidebar-btn${isActive ? ' active' : ''}`
               }
+              onClick={onNavigate}
             >
               {page.label}
             </NavLink>
