@@ -4,7 +4,6 @@ import ReactInfo from './components/ReactIntroPage/ReactInfo';
 import ComponentInfo from './components/ComponentPage/ComponentInfo';
 import Sidebar from './components/Sidebar/Sidebar';
 import MobileTopBar from './components/Sidebar/MobileTopBar';
-import MobileSidebarDrawer from './components/Sidebar/MobileSidebarDrawer';
 import { useMobileSidebar } from './components/Sidebar/useMobileSidebar';
 import Homework1 from './components/Homework1/Homework1';
 import Homework2 from './components/Homework2/Homework2';
@@ -33,12 +32,38 @@ function App() {
             onMenuClick={() => setDrawerOpen(true)}
             isDrawerOpen={drawerOpen}
           />
-          <MobileSidebarDrawer
-            open={drawerOpen}
-            onClose={() => {
-              setDrawerOpen(false);
-            }}
-          />
+          {drawerOpen && (
+            <>
+              <div
+                className="sidebar-drawer-backdrop"
+                onClick={() => {
+                  setDrawerOpen(false);
+                }}
+                aria-hidden="true"
+              />
+              <div
+                className="sidebar-drawer"
+                id="sidebar-drawer"
+                role="dialog"
+                aria-modal="true"
+              >
+                <button
+                  aria-label="Close menu"
+                  onClick={() => {
+                    setDrawerOpen(false);
+                  }}
+                >
+                  ✕
+                </button>
+                <Sidebar
+                  pages={pages}
+                  activePage={activePage}
+                  setActivePage={setActivePage}
+                  onNavigate={() => setDrawerOpen(false)}
+                />
+              </div>
+            </>
+          )}
           <main style={{ flex: 1, padding: '1rem', minWidth: 0 }}>
             {activePage === 'reactInfo' && <ReactInfo />}
             {activePage === 'component' && <ComponentInfo />}
