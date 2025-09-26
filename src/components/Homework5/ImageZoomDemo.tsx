@@ -1,8 +1,20 @@
 import React, { useRef, useEffect, useState } from 'react';
 import useCenterZoomCanvas from './useCenterZoomCanvas';
 
-const CANVAS_WIDTH = 500;
-const CANVAS_HEIGHT = 500;
+const getCanvasSize = () => {
+  if (typeof window !== 'undefined') {
+    // Simple mobile detection
+    const isMobile =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(max-width: 700px)').matches;
+
+    return isMobile ? 300 : 500;
+  }
+  return 500;
+};
+
+const CANVAS_WIDTH = getCanvasSize();
+const CANVAS_HEIGHT = getCanvasSize();
 
 const ImageZoomDemo: React.FC = () => {
   const [filename, setFilename] = useState('');
@@ -99,6 +111,7 @@ const ImageZoomDemo: React.FC = () => {
             border: '1px solid #ccc',
             background: '#232323',
             cursor: 'grab',
+            touchAction: 'none',
           }}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}

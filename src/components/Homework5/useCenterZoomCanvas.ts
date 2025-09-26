@@ -16,6 +16,16 @@ export default function useCenterZoomCanvas(
   const dragStart = useRef({ x: 0, y: 0 });
   const offsetStart = useRef({ x: 0, y: 0 });
 
+  const activePointers = useRef(new Map<number, { x: number; y: number }>());
+  const pinchStartDist = useRef(0);
+  const pinchStartScale = useRef(1);
+  const pinchStartMid = useRef({ x: 0, y: 0 });
+
+  const toCanvasXY = (clientX: number, clientY: number) => {
+    const r = canvasRef.current!.getBoundingClientRect();
+    return { x: clientX - r.left, y: clientY - r.top };
+  };
+
   // Draw image at offset, scaled
   const draw = () => {
     const canvas = canvasRef.current;
@@ -95,27 +105,75 @@ export default function useCenterZoomCanvas(
   // Drag-to-pan handlers
   const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
     if (!imgRef.current) return;
-    if (e.button !== 0) return; // left button only
-    isDragging.current = true;
-    dragStart.current = { x: e.clientX, y: e.clientY };
-    offsetStart.current = { ...offsetRef.current };
+    activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (activePointers.current.size === 1) {
+      isDragging.current = true;
+      dragStart.current = { x: e.clientX, y: e.clientY };
+      offsetStart.current = { ...offsetRef.current };
+    } else if (activePointers.current.size === 2) {
+      const pts = Array.from(activePointers.current.values());
+      pinchStartDist.current = Math.hypot(
+        pts[0].x - pts[1].x,
+        pts[0].y - pts[1].y,
+      );
+      pinchStartScale.current = scaleRef.current;
+      const midClient = {
+        x: (pts[0].x + pts[1].x) / 2,
+        y: (pts[0].y + pts[1].y) / 2,
+      };
+      pinchStartMid.current = toCanvasXY(midClient.x, midClient.y);
+      isDragging.current = false; // 進入 pinch 狀態
+    }
+    e.currentTarget.setPointerCapture(e.pointerId);
     e.preventDefault();
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLCanvasElement>) => {
-    if (!imgRef.current || !isDragging.current) return;
-    const dx = e.clientX - dragStart.current.x;
-    const dy = e.clientY - dragStart.current.y;
-    offsetRef.current = {
-      x: offsetStart.current.x + dx,
-      y: offsetStart.current.y + dy,
-    };
-    draw();
-    e.preventDefault();
+    if (!imgRef.current) return;
+    if (!activePointers.current.has(e.pointerId)) return;
+
+    activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (activePointers.current.size === 2 && pinchStartDist.current > 0) {
+      const pts = Array.from(activePointers.current.values());
+      const curDist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      const nextScale = clamp(
+        pinchStartScale.current * (curDist / pinchStartDist.current),
+        0.1,
+        20,
+      );
+
+      const prev = scaleRef.current;
+      const mid = pinchStartMid.current;
+      offsetRef.current = {
+        x: mid.x - (mid.x - offsetRef.current.x) * (nextScale / prev),
+        y: mid.y - (mid.y - offsetRef.current.y) * (nextScale / prev),
+      };
+      scaleRef.current = nextScale;
+      draw();
+      e.preventDefault();
+      return;
+    }
+
+    // 單指拖曳（原有邏輯）
+    if (isDragging.current) {
+      const dx = e.clientX - dragStart.current.x;
+      const dy = e.clientY - dragStart.current.y;
+      offsetRef.current = {
+        x: offsetStart.current.x + dx,
+        y: offsetStart.current.y + dy,
+      };
+      draw();
+      e.preventDefault();
+    }
   };
 
-  const handlePointerUp = () => {
-    isDragging.current = false;
+  const handlePointerUp = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    activePointers.current.delete(e.pointerId);
+    if (activePointers.current.size < 2) {
+      pinchStartDist.current = 0;
+    }
+    if (activePointers.current.size === 0) isDragging.current = false;
   };
 
   const handlePointerLeave = () => {
