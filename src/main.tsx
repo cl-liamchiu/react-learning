@@ -6,7 +6,7 @@ import AppRoutes from './routes/routes';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/react-learning">
+    <BrowserRouter basename="/react-learning/">
       <AppRoutes />
     </BrowserRouter>
   </StrictMode>,
