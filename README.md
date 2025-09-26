@@ -4,7 +4,7 @@ A web project that showcases fundamental **React concepts**, along with hands-on
 
 ---
 
-🌐 **Live Demo:** [GitHub Pages Link](https://https://cl-liamchiu.github.io/react-learning/)
+🌐 **Live Demo:** [GitHub Pages Link](https://cl-liamchiu.github.io/react-learning/)
 
 ---
 
