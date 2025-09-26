@@ -76,6 +76,13 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+@media (max-width: 700px) {
+  button {
+    margin: 0.2rem 0rem;
+  }
+}
+
 button:hover {
   border-color: #646cff;
 }

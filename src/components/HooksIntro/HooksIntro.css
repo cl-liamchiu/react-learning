@@ -15,3 +15,16 @@
   text-align: center;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.308);
 }
+
+@media (max-width: 700px) {
+  .hooks-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  .hook-block {
+    font-size: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}

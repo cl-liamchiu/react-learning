@@ -1,6 +1,17 @@
 import React, { useRef, useState } from 'react';
 
-const CANVAS_SIZE = 500;
+const getCanvasSize = () => {
+  if (typeof window !== 'undefined') {
+    // Simple mobile detection
+    const isMobile =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(max-width: 700px)').matches;
+
+    return isMobile ? 300 : 500;
+  }
+  return 500;
+};
+const CANVAS_SIZE = getCanvasSize();
 
 const CanvasImageEditor: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
