@@ -40,3 +40,9 @@ npm install
 # Run development server
 npm run dev   # use `npm start` if CRA
 ```
+
+---
+
+## Credits
+
+- Preview and Content Cat image: Photo by [Raoul Droog](https://unsplash.com/@raouldroog) on [Unsplash](https://unsplash.com)

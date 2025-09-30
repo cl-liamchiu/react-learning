@@ -232,6 +232,24 @@ img.onload = () => {
           </code>
         </pre>
         <CanvasExamples.ImagesExample />
+        <footer style={{ marginTop: '2rem', fontSize: '0.8rem' }}>
+          Photo by{' '}
+          <a
+            href="https://unsplash.com/@raouldroog"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Raoul Droog
+          </a>{' '}
+          on{' '}
+          <a
+            href="https://unsplash.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Unsplash
+          </a>
+        </footer>
       </>
     ),
   },
