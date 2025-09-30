@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 首頁 -->
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+
+  <!-- 單頁 -->
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/ascii-donut</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/react-info</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/react-component</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/react-hooks</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/react-route-info</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/canvas</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/canvas-api</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+
+  <!-- 動態路由：react-hw/:id -->
+  <!-- 這裡需要手動列出常見的 id，否則 Google 不會知道有這些頁面 -->
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/react-hw/1</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/react-hw/2</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+
+  <!-- 動態路由：canvas-hw/:id -->
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/canvas-hw/3</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/canvas-hw/4</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+    <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/canvas-hw/5</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+
+  <!-- canvas-hw 子頁 -->
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/canvas-hw/3/post-board</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://cl-liamchiu.github.io/react-learning/route-mode/canvas-hw/3/create-post</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+</urlset>
